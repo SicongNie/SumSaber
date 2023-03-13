@@ -26,7 +26,6 @@ public class SumManager : MonoBehaviour
     void Start()
     {
         GenerateProblem();
-
     }
 
     public void GenerateProblem()

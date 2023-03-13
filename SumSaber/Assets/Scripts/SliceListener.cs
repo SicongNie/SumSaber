@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 using UnityEngine.InputSystem.HID;
+using TMPro;
 
 public class SliceListener : MonoBehaviour
 {
     private Vector3 previousPos;
     public Slicer slicer;
-    private bool test;
+
+    public string layer;
+
+    private bool isTriggered;
+    [SerializeField] SumGenerator sumGenerator;
+    private TextMeshPro answer;
+
+    [SerializeField] PlayerScores scores;
+    [SerializeField] Numbers counter;
 
 
     void Start()
@@ -18,14 +27,43 @@ public class SliceListener : MonoBehaviour
 
     private void Update()
     {
+        if (isTriggered)
+        {
+            int a = int.Parse(answer.text);
+
+            if (sumGenerator.CheckAnswer(a))
+            {
+                Debug.Log("correct");
+            }
+            else
+            {
+                Debug.Log("incorrect");
+            }
+            scores.GetScores(sumGenerator.CheckAnswer(a));
+            counter.questionCount++;
+            sumGenerator.ShowQuesionAnswer();
+            isTriggered = false;
+        }
+        previousPos = transform.position;
         previousPos = transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (Vector3.Angle(transform.position - previousPos, other.transform.up) > 130)
+        string layerName = LayerMask.LayerToName(other.gameObject.layer);
+        if (layerName == layer)
         {
-            slicer.isTouched = true;
+            if (Vector3.Angle(transform.position - previousPos, other.transform.up) > 130)
+            {
+                isTriggered = true;
+                answer = other.transform.GetChild(1).GetComponent<TextMeshPro>();
+                slicer.isTouched = true;
+            }
         }
+    }
+
+    private void LateUpdate()
+    {
+        previousPos = transform.position;
     }
 }
