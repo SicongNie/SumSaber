@@ -19,7 +19,6 @@ public class SliceListener : MonoBehaviour
     [SerializeField] PlayerScores scores;
     [SerializeField] Numbers counter;
 
-
     void Start()
     {
 

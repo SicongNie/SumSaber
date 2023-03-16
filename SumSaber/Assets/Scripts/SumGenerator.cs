@@ -31,7 +31,7 @@ public class SumGenerator : MonoBehaviour
 
     private void Start()
     {
-        timerCoroutine = StartCoroutine(QuestionTimer());
+        timerCoroutine = StartCoroutine(StartGame());
     }
 
     private void Update()
@@ -39,12 +39,25 @@ public class SumGenerator : MonoBehaviour
 
     }
 
+    IEnumerator StartGame()
+    {
+        float timeLeft = 5.0f;
+        while (timeLeft > 0)
+        {
+            question.text = Mathf.RoundToInt(timeLeft).ToString();
+            yield return new WaitForSeconds(1.0f);
+            timeLeft -= 1.0f;
+        }
+        timerCoroutine = StartCoroutine(QuestionTimer());
+    }
+
     IEnumerator QuestionTimer()
     {
-        while (true)
+        while (counter.questionCount != counter.maxQuestionCount)
         {
             GenerateQuestion();
             yield return new WaitForSeconds(timer);
+
             if (!isAnswered)
             {
                 score.GetScores(false);
@@ -52,10 +65,9 @@ public class SumGenerator : MonoBehaviour
                 ShowCorrectAnswer();
                 question.color = Color.red;
                 yield return new WaitForSeconds(2.0f);
-
             }
-
         }
+        timerCoroutine = StartCoroutine(EndGameDelay());
     }
 
     IEnumerator ShowQuestionDelayed()
@@ -64,9 +76,14 @@ public class SumGenerator : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         isAnswered = false;
         timerCoroutine = StartCoroutine(QuestionTimer());
+
     }
 
-
+    IEnumerator EndGameDelay()
+    {
+        yield return new WaitForSeconds(4.0f);
+        counter.EndGame();
+    }
 
     public void ShowQuesionAnswer()
     {
@@ -120,12 +137,21 @@ public class SumGenerator : MonoBehaviour
             }
             else
             {
-                answerOptions[i] = Random.Range(1, 20);
+                //  answerOptions[i] = Random.Range(1, 20);
+                int offset = Random.Range(1, 4);
+                if (Random.Range(0, 2) == 0) // randomly choose to add or subtract
+                {
+                    answerOptions[i] = correctAnswer + offset;
+                }
+                else
+                {
+                    answerOptions[i] = correctAnswer - offset;
+                }
+
             }
         }
 
         Shuffle(answerOptions);
-
 
         for (int i = 0; i < answerTexts.Count; i++)
         {
@@ -146,7 +172,7 @@ public class SumGenerator : MonoBehaviour
 
     public bool CheckAnswer(int a)
     {
-        isAnswered= true;
+        isAnswered = true;
         int correctAnswer = 0;
         switch (op)
         {
@@ -190,7 +216,7 @@ public class SumGenerator : MonoBehaviour
         }
         string problemText = string.Format("{0} {1} {2} = {3}", num1, op, num2, correctAnswer);
         question.text = problemText;
- 
+
     }
 
 

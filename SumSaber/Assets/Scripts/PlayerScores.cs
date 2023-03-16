@@ -7,16 +7,20 @@ public class PlayerScores : MonoBehaviour
 {
     public int score = 0;
 
+
     TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI scoresTxt;
+
 
     public void Start()
     {
-        scoreText = GetComponent<TextMeshProUGUI>();
+        scoreText= GetComponent<TextMeshProUGUI>();
     }
 
     public void Update()
     {
         scoreText.text = score.ToString();
+        scoresTxt.text = score.ToString();
     }
 
     public void GetScores(bool a)

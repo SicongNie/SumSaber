@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
-public class Lighsaber : MonoBehaviour
+public class Lightsabers: MonoBehaviour
 {
     public string layer;
     private Vector3 previousPos;
@@ -76,7 +76,6 @@ public class Lighsaber : MonoBehaviour
 
     private void LateUpdate()
     {
-
         previousPos = transform.position;
     }
 

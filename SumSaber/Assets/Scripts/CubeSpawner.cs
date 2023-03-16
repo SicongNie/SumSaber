@@ -1,6 +1,7 @@
 using Palmmedia.ReportGenerator.Core;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
@@ -30,13 +31,13 @@ public class CubeSpawner : MonoBehaviour
 
     void Update()
     {
-       /* if (timer > beat)
-        {
+        /* if (timer > beat)
+         {
 
-            timer -= beat;
-        }
-        timer += Time.deltaTime;
-       */
+             timer -= beat;
+         }
+         timer += Time.deltaTime;
+        */
     }
 
     public void GenerateCubes(string generatedString)
@@ -44,12 +45,11 @@ public class CubeSpawner : MonoBehaviour
         foreach (Transform point in bpoints)
         {
             GameObject bcube = Instantiate(bluecube, point);
-            bnumber = bcube.transform.GetChild(1).GetComponent<TextMeshPro>();
+            bnumber = bcube.transform.GetChild(0).GetComponent<TextMeshPro>();
             sumGenerator.answerTexts.Add(bnumber);
 
             bcube.transform.localPosition = Vector3.zero;
             bcube.transform.Rotate(transform.forward, 90 * r[Random.Range(0, 2)]);
-            // bcube.transform.Rotate(transform.forward, 90 * Random.Range(0, 4));
             bnumber.transform.rotation = Quaternion.LookRotation(-transform.forward, transform.up);
             Destroy(bcube, 10);
         }
@@ -57,7 +57,7 @@ public class CubeSpawner : MonoBehaviour
         foreach (Transform point in rpoints)
         {
             GameObject rcube = Instantiate(redcube, point);
-            rnumber = rcube.transform.GetChild(1).GetComponent<TextMeshPro>();
+            rnumber = rcube.transform.GetChild(0).GetComponent<TextMeshPro>();
             sumGenerator.answerTexts.Add(rnumber);
 
             rcube.transform.localPosition = Vector3.zero;

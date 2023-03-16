@@ -6,23 +6,24 @@ using UnityEngine;
 public class Numbers : MonoBehaviour
 {
     public int questionCount = 0;
-    public int maxQuestionCount = 20;
+    public int maxQuestionCount = 2;
+
 
     TextMeshProUGUI counterText;
+
 
     void Start()
     {
         counterText = GetComponent<TextMeshProUGUI>();
     }
 
-
     void Update()
     {
         counterText.text = (maxQuestionCount - questionCount).ToString();
     }
 
-    void EndGame()
+    public void EndGame()
     {
-
+        GetComponent<EndHandler>().HandleEnd();
     }
 }
