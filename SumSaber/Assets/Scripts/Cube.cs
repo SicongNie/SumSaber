@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private float moveSpeed;
+
     void Start()
     {
-      
+
+    }
+   public void SetMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position += Time.deltaTime * transform.forward * 2;
+        transform.position += Time.deltaTime * transform.forward * moveSpeed;
     }
+
 }

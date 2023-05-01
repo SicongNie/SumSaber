@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 253428d7f8d4ed64d85f14334f7cd04e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Neonblitz
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: eaa17ef48c26c0f4eaa0699ac2389a92, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

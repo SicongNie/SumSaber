@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class EndHandler : MonoBehaviour
 {
@@ -14,14 +15,16 @@ public class EndHandler : MonoBehaviour
     [SerializeField] GameObject leftcontroller1;
     [SerializeField] GameObject rightcontroller1;
 
-    
+    [SerializeField] TextMeshProUGUI sumsTxt;
+    [SerializeField] GameObject scrollViewContent;
+    [SerializeField] GameObject listItemPrefab;
+
     private void Start()
     {
         gameOverCanvas.enabled = false;
 
         leftcontroller1.SetActive(false);
         rightcontroller1.SetActive(false);
-
     }
     public void HandleEnd()
     {
@@ -33,6 +36,29 @@ public class EndHandler : MonoBehaviour
 
         leftcontroller1.SetActive(true);
         rightcontroller1.SetActive(true);
+
+        foreach (Transform child in scrollViewContent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        List<string> wrongAnswers = SumGenerator.wrongAnswers;
+        if (wrongAnswers.Count > 0)
+        {
+            foreach (string answer in wrongAnswers)
+            {
+                //  wrongAnswersText += answer + "\n";
+                GameObject listItem = Instantiate(listItemPrefab, scrollViewContent.transform);
+                TextMeshProUGUI listItemText = listItem.GetComponentInChildren<TextMeshProUGUI>();
+                listItemText.text = answer;
+                listItemText.enabled = true;
+
+            }
+        }
+        else
+        {
+            sumsTxt.text = "Je hebt alle sommen goed gemaakt!";
+        }
 
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
