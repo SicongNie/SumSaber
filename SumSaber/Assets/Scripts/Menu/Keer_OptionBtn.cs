@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static GameModeController;
@@ -77,135 +75,143 @@ public class Keer_OptionBtn : MonoBehaviour
         Image optionbutton_keer_9 = optionButton_keer_9.GetComponent<Image>();
         Image optionbutton_keer_random = optionButton_keer_random.GetComponent<Image>();
 
+        string htmlColor = "#63F578";
+        string htmlColor2 = "#59B966";
+        Color color;
+        Color color2;
+        ColorUtility.TryParseHtmlString(htmlColor, out color);
+        ColorUtility.TryParseHtmlString(htmlColor2, out color2);
+
+
         if (SelectedKeer == KeerOption.X1)
         {
-            optionbutton_keer_1.color = Color.gray;
-            optionbutton_keer_2.color = Color.white;
-            optionbutton_keer_3.color = Color.white;
-            optionbutton_keer_4.color = Color.white;
-            optionbutton_keer_5.color = Color.white;
-            optionbutton_keer_6.color = Color.white;
-            optionbutton_keer_7.color = Color.white;
-            optionbutton_keer_8.color = Color.white;
-            optionbutton_keer_9.color = Color.white;
-            optionbutton_keer_random.color = Color.white;
+            optionbutton_keer_1.color = color2;
+            optionbutton_keer_2.color = color;
+            optionbutton_keer_3.color = color;
+            optionbutton_keer_4.color = color;
+            optionbutton_keer_5.color = color;
+            optionbutton_keer_6.color = color;
+            optionbutton_keer_7.color = color;
+            optionbutton_keer_8.color = color;
+            optionbutton_keer_9.color = color;
+            optionbutton_keer_random.color = color;
         }
         else if (SelectedKeer == KeerOption.X2)
         {
-            optionbutton_keer_1.color = Color.white;
-            optionbutton_keer_2.color = Color.gray;
-            optionbutton_keer_3.color = Color.white;
-            optionbutton_keer_4.color = Color.white;
-            optionbutton_keer_5.color = Color.white;
-            optionbutton_keer_6.color = Color.white;
-            optionbutton_keer_7.color = Color.white;
-            optionbutton_keer_8.color = Color.white;
-            optionbutton_keer_9.color = Color.white;
-            optionbutton_keer_random.color = Color.white;
+            optionbutton_keer_1.color = color;
+            optionbutton_keer_2.color = color2;
+            optionbutton_keer_3.color = color;
+            optionbutton_keer_4.color = color;
+            optionbutton_keer_5.color = color;
+            optionbutton_keer_6.color = color;
+            optionbutton_keer_7.color = color;
+            optionbutton_keer_8.color = color;
+            optionbutton_keer_9.color = color;
+            optionbutton_keer_random.color = color;
         }
         else if (SelectedKeer == KeerOption.X3)
         {
-            optionbutton_keer_1.color = Color.white;
-            optionbutton_keer_2.color = Color.white;
-            optionbutton_keer_3.color = Color.gray;
-            optionbutton_keer_4.color = Color.white;
-            optionbutton_keer_5.color = Color.white;
-            optionbutton_keer_6.color = Color.white;
-            optionbutton_keer_7.color = Color.white;
-            optionbutton_keer_8.color = Color.white;
-            optionbutton_keer_9.color = Color.white;
-            optionbutton_keer_random.color = Color.white;
+            optionbutton_keer_1.color = color;
+            optionbutton_keer_2.color = color;
+            optionbutton_keer_3.color = color2;
+            optionbutton_keer_4.color = color;
+            optionbutton_keer_5.color = color;
+            optionbutton_keer_6.color = color;
+            optionbutton_keer_7.color = color;
+            optionbutton_keer_8.color = color;
+            optionbutton_keer_9.color = color;
+            optionbutton_keer_random.color = color;
         }
         else if (SelectedKeer == KeerOption.X4)
         {
-            optionbutton_keer_1.color = Color.white;
-            optionbutton_keer_2.color = Color.white;
-            optionbutton_keer_3.color = Color.white;
-            optionbutton_keer_4.color = Color.gray;
-            optionbutton_keer_5.color = Color.white;
-            optionbutton_keer_6.color = Color.white;
-            optionbutton_keer_7.color = Color.white;
-            optionbutton_keer_8.color = Color.white;
-            optionbutton_keer_9.color = Color.white;
-            optionbutton_keer_random.color = Color.white;
+            optionbutton_keer_1.color = color;
+            optionbutton_keer_2.color = color;
+            optionbutton_keer_3.color = color;
+            optionbutton_keer_4.color = color2;
+            optionbutton_keer_5.color = color;
+            optionbutton_keer_6.color = color;
+            optionbutton_keer_7.color = color;
+            optionbutton_keer_8.color = color;
+            optionbutton_keer_9.color = color;
+            optionbutton_keer_random.color = color;
         }
         else if (SelectedKeer == KeerOption.X5)
         {
-            optionbutton_keer_1.color = Color.white;
-            optionbutton_keer_2.color = Color.white;
-            optionbutton_keer_3.color = Color.white;
-            optionbutton_keer_4.color = Color.white;
-            optionbutton_keer_5.color = Color.gray;
-            optionbutton_keer_6.color = Color.white;
-            optionbutton_keer_7.color = Color.white;
-            optionbutton_keer_8.color = Color.white;
-            optionbutton_keer_9.color = Color.white;
-            optionbutton_keer_random.color = Color.white;
+            optionbutton_keer_1.color = color;
+            optionbutton_keer_2.color = color;
+            optionbutton_keer_3.color = color;
+            optionbutton_keer_4.color = color;
+            optionbutton_keer_5.color = color2;
+            optionbutton_keer_6.color = color;
+            optionbutton_keer_7.color = color;
+            optionbutton_keer_8.color = color;
+            optionbutton_keer_9.color = color;
+            optionbutton_keer_random.color = color;
         }
         else if (SelectedKeer == KeerOption.X6)
         {
-            optionbutton_keer_1.color = Color.white;
-            optionbutton_keer_2.color = Color.white;
-            optionbutton_keer_3.color = Color.white;
-            optionbutton_keer_4.color = Color.white;
-            optionbutton_keer_5.color = Color.white;
-            optionbutton_keer_6.color = Color.gray;
-            optionbutton_keer_7.color = Color.white;
-            optionbutton_keer_8.color = Color.white;
-            optionbutton_keer_9.color = Color.white;
-            optionbutton_keer_random.color = Color.white;
+            optionbutton_keer_1.color = color;
+            optionbutton_keer_2.color = color;
+            optionbutton_keer_3.color = color;
+            optionbutton_keer_4.color = color;
+            optionbutton_keer_5.color = color;
+            optionbutton_keer_6.color = color2;
+            optionbutton_keer_7.color = color;
+            optionbutton_keer_8.color = color;
+            optionbutton_keer_9.color = color;
+            optionbutton_keer_random.color = color;
         }
         else if (SelectedKeer == KeerOption.X7)
         {
-            optionbutton_keer_1.color = Color.white;
-            optionbutton_keer_2.color = Color.white;
-            optionbutton_keer_3.color = Color.white;
-            optionbutton_keer_4.color = Color.white;
-            optionbutton_keer_5.color = Color.white;
-            optionbutton_keer_6.color = Color.white;
-            optionbutton_keer_7.color = Color.gray;
-            optionbutton_keer_8.color = Color.white;
-            optionbutton_keer_9.color = Color.white;
-            optionbutton_keer_random.color = Color.white;
+            optionbutton_keer_1.color = color;
+            optionbutton_keer_2.color = color;
+            optionbutton_keer_3.color = color;
+            optionbutton_keer_4.color = color;
+            optionbutton_keer_5.color = color;
+            optionbutton_keer_6.color = color;
+            optionbutton_keer_7.color = color2;
+            optionbutton_keer_8.color = color;
+            optionbutton_keer_9.color = color;
+            optionbutton_keer_random.color = color;
         }
         else if (SelectedKeer == KeerOption.X8)
         {
-            optionbutton_keer_1.color = Color.white;
-            optionbutton_keer_2.color = Color.white;
-            optionbutton_keer_3.color = Color.white;
-            optionbutton_keer_4.color = Color.white;
-            optionbutton_keer_5.color = Color.white;
-            optionbutton_keer_6.color = Color.white;
-            optionbutton_keer_7.color = Color.white;
-            optionbutton_keer_8.color = Color.gray;
-            optionbutton_keer_9.color = Color.white;
-            optionbutton_keer_random.color = Color.white;
+            optionbutton_keer_1.color = color;
+            optionbutton_keer_2.color = color;
+            optionbutton_keer_3.color = color;
+            optionbutton_keer_4.color = color;
+            optionbutton_keer_5.color = color;
+            optionbutton_keer_6.color = color;
+            optionbutton_keer_7.color = color;
+            optionbutton_keer_8.color = color2;
+            optionbutton_keer_9.color = color;
+            optionbutton_keer_random.color = color;
         }
         else if (SelectedKeer == KeerOption.X9)
         {
-            optionbutton_keer_1.color = Color.white;
-            optionbutton_keer_2.color = Color.white;
-            optionbutton_keer_3.color = Color.white;
-            optionbutton_keer_4.color = Color.white;
-            optionbutton_keer_5.color = Color.white;
-            optionbutton_keer_6.color = Color.white;
-            optionbutton_keer_7.color = Color.white;
-            optionbutton_keer_8.color = Color.white;
-            optionbutton_keer_9.color = Color.gray;
-            optionbutton_keer_random.color = Color.white;
+            optionbutton_keer_1.color = color;
+            optionbutton_keer_2.color = color;
+            optionbutton_keer_3.color = color;
+            optionbutton_keer_4.color = color;
+            optionbutton_keer_5.color = color;
+            optionbutton_keer_6.color = color;
+            optionbutton_keer_7.color = color;
+            optionbutton_keer_8.color = color;
+            optionbutton_keer_9.color = color2;
+            optionbutton_keer_random.color = color;
         }
         else if (SelectedKeer == KeerOption.random)
         {
-            optionbutton_keer_1.color = Color.white;
-            optionbutton_keer_2.color = Color.white;
-            optionbutton_keer_3.color = Color.white;
-            optionbutton_keer_4.color = Color.white;
-            optionbutton_keer_5.color = Color.white;
-            optionbutton_keer_6.color = Color.white;
-            optionbutton_keer_7.color = Color.white;
-            optionbutton_keer_8.color = Color.white;
-            optionbutton_keer_9.color = Color.white;
-            optionbutton_keer_random.color = Color.gray;
+            optionbutton_keer_1.color = color;
+            optionbutton_keer_2.color = color;
+            optionbutton_keer_3.color = color;
+            optionbutton_keer_4.color = color;
+            optionbutton_keer_5.color = color;
+            optionbutton_keer_6.color = color;
+            optionbutton_keer_7.color = color;
+            optionbutton_keer_8.color = color;
+            optionbutton_keer_9.color = color;
+            optionbutton_keer_random.color = color2;
         }
     }
 }

@@ -120,7 +120,7 @@ public class SumGenerator : MonoBehaviour
                 break;
         }
 
-        if (GameModeController.settings.gamemode == 2)
+        if (GameModeController.settings.sabermode == 1)
         {
             answerOptions = new int[3];
         }

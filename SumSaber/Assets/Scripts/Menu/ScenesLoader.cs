@@ -26,6 +26,12 @@ public class ScenesLoader : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void LoadOptionMenuScene()
+    {
+        SceneManager.LoadScene(3);
+        Time.timeScale = 1;
+    }
+
     public void ExitGame()
     {
         Application.Quit();

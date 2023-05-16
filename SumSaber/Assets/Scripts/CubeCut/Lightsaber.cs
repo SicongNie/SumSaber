@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.CubeCut;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -52,38 +50,11 @@ public class Lightsaber : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        /*        if (layerName == layer)
-                {
-                    if(GameModeController.settings.gamemode == 1)
-                    {
-                        if (Vector3.Angle(objectCut._blade.transform.position - objectCut.previousPos, other.transform.up) > 130)
-                        {
-                            hapticInteracble.TriggerHaptic();
-                            PlayCutSound();
-                            checkangle = true;
-                        }
-                        else
-                        {
-                            hapticInteracble.TriggerHaptic();
-                            PlayCutSound_Faild();
-                        }
-                    }
-                    else
-                    {
-                        hapticInteracble.TriggerHaptic();
-                        PlayCutSound();
-                        checkangle = true;
-                    }
-
-
-                }*/
         if (GameModeController.settings.gamemode == 1)
         {
-            if (Vector3.Angle(objectCut._blade.transform.position - objectCut.previousPos, other.transform.up) > 130)
+            if (Vector3.Angle(objectCut._blade.transform.position - objectCut.previousPos, other.transform.up) > 100)
             {
-                hapticInteracble.TriggerHaptic();
-                PlayCutSound();
-                checkangle = true;
+                CutContinue();
             }
             else
             {
@@ -95,13 +66,8 @@ public class Lightsaber : MonoBehaviour
         }
         else
         {
-            hapticInteracble.TriggerHaptic();
-            PlayCutSound();
-            checkangle = true;
+            CutContinue();
         }
-
-
-
         objectCut.GetPositions();
     }
 
@@ -118,7 +84,7 @@ public class Lightsaber : MonoBehaviour
             {
                 isTriggered= false;
                 GameObject objectwarning = Instantiate(warning, other.transform.GetChild(0).GetChild(0).position, Quaternion.identity);
-                objectwarning.GetComponent<TextMeshPro>().text = "X";
+                objectwarning.GetComponent<TextMeshPro>().text = "Wrong Color";
                 Destroy(objectwarning, 1f);
             }
             objectCut.CutObject(other);
@@ -127,6 +93,13 @@ public class Lightsaber : MonoBehaviour
             Destroy(objecteffect, 2f);
             checkangle = false;
         }
+    }
+
+    private void CutContinue()
+    {
+        hapticInteracble.TriggerHaptic();
+        PlayCutSound();
+        checkangle = true;
     }
 
     private void PlayCutSound()

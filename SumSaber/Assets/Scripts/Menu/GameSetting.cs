@@ -8,4 +8,5 @@ public struct GameSettings
     public int numQuestions;
     public float generationSpeed;
     public int gamemode;
+    public int sabermode;
 }
