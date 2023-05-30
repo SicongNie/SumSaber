@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using CarouselUI;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using static LightSaberColorChange;
 
 
 
@@ -17,11 +19,13 @@ public class Lightsaber : MonoBehaviour
     private AudioSource cutsound;
     [SerializeField] AudioClip cotsound_hit;
     [SerializeField] AudioClip cutsound_faild;
+
     private bool isPlaying = false;
 
     public HapticInteracble hapticInteracble;
 
-    public GameObject effect;
+    [SerializeField] GameObject cuteffect;
+
     [SerializeField] GameObject warning;
 
     public ObjectCut objectCut;
@@ -82,14 +86,24 @@ public class Lightsaber : MonoBehaviour
             }
             else
             {
-                isTriggered= false;
+                isTriggered = false;
                 GameObject objectwarning = Instantiate(warning, other.transform.GetChild(0).GetChild(0).position, Quaternion.identity);
-                objectwarning.GetComponent<TextMeshPro>().text = "Wrong Color";
+                if (CarouselUIElement._currentIndex == 0)
+                {
+                    objectwarning.GetComponent<TextMeshPro>().text = "Foute Kleur";
+                }
+                else if (CarouselUIElement._currentIndex == 1)
+                {
+                    objectwarning.GetComponent<TextMeshPro>().text = "Wrong Color";
+                }
+
                 Destroy(objectwarning, 1f);
             }
             objectCut.CutObject(other);
             answer = other.transform.GetChild(0).GetComponent<TextMeshPro>();
-            GameObject objecteffect = Instantiate(effect, other.transform.position, Quaternion.identity);
+
+            GameObject objecteffect = Instantiate(cuteffect, other.transform.position, Quaternion.identity);
+            objecteffect.GetComponent<Renderer>().material = other.GetComponent<Renderer>().material;
             Destroy(objecteffect, 2f);
             checkangle = false;
         }

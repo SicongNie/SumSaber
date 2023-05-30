@@ -8,10 +8,15 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
+    [SerializeField] AudioSource sfxSource_Countdown;
 
     [Header("Audio Clips")]
-    public AudioClip menu;
     public AudioClip background;
+    public AudioClip menu;
+    public AudioClip button_press;
+    public AudioClip button_hover;
+
+    public AudioClip CountDown;
 
     public static AudioManager instance;
 
@@ -30,10 +35,24 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicSource.clip = menu;
+        PlayMusic(menu);
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.clip = clip;
         musicSource.Play();
     }
 
+    public void PlaySFX(AudioClip clip)
+    {
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayCountdown(AudioClip clip)
+    {
+        sfxSource_Countdown.PlayOneShot(clip);
+    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;

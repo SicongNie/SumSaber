@@ -5,25 +5,21 @@ using UnityEngine.EventSystems;
 
 public class ButtonSoundEffect : MonoBehaviour, IPointerEnterHandler
 {
-    public AudioClip hoverClip;
-    public AudioClip pressedClip;
-    private AudioSource audioSource;
+    AudioManager audioManager;
 
-    void Start()
+    private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public void PlayPressedClip()
     {
-        audioSource.clip = pressedClip;
-        audioSource.Play();
+        audioManager.PlaySFX(audioManager.button_press);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        audioSource.clip = hoverClip;
-        audioSource.Play();
+        audioManager.PlaySFX(audioManager.button_hover);
     }
 
 }

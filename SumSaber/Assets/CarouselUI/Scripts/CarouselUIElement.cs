@@ -78,10 +78,7 @@ namespace CarouselUI
 
         }
 
-        /// <summary>
-        /// Prevents further refires until duration ends.
-        /// </summary>
-        /// <returns></returns>
+        // Prevents further refires until duration ends.
         private IEnumerator LockoutDelay()
         {
             _isProcessing = true; //PREVENTS BUTTON MASHING
@@ -122,7 +119,7 @@ namespace CarouselUI
             }
 
             InputEvent?.Invoke();
-            ChangeLanguage.isTriggered = true;
+            LocalezationManager.isTriggered = true;
         }
 
         //METHOD ACCESSED BY PREVIOUS BUTTON
@@ -154,13 +151,11 @@ namespace CarouselUI
             }
 
             InputEvent?.Invoke();
-            ChangeLanguage.isTriggered = true;
+            LocalezationManager.isTriggered = true;
         }
 
-        /// <summary>
-        /// Used by an associated processor to update the index of this carousel.
-        /// </summary>
-        /// <param name="input"></param>
+
+        // Used by an associated processor to update the index of this carousel.
         public void UpdateIndex(int input)
         {
             _currentIndex = input;

@@ -7,10 +7,8 @@ public class PlayerScores : MonoBehaviour
 {
     public int score = 0;
 
-
     TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI scoresTxt;
-
 
     public void Start()
     {

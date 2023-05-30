@@ -7,11 +7,9 @@ using static GameModeController;
 public class SumGenerator : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI question;
-    public List<TextMeshPro> answerTexts;
 
     [SerializeField] PlayerScores score;
     [SerializeField] Numbers counter;
-
     [SerializeField] CubeSpawner cubeSpawner;
 
     private int num1;
@@ -19,8 +17,9 @@ public class SumGenerator : MonoBehaviour
     private char op;
     //  private char[] ops = { '+', '-', '*' };
 
+    public List<TextMeshPro> answerTexts;
     private int[] answerOptions;
-    private int correctAnswerIndex;
+   // private int correctAnswerIndex;
 
     private Coroutine timerCoroutine;
     private bool isAnswered;
@@ -33,8 +32,15 @@ public class SumGenerator : MonoBehaviour
 
     public static List<string> wrongAnswers = new List<string>();
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void Start()
     {
+        audioManager.PlayCountdown(audioManager.CountDown);
         timerCoroutine = StartCoroutine(StartGame());
         canTrigger = true;
     }
@@ -42,7 +48,6 @@ public class SumGenerator : MonoBehaviour
     public void GenerateQuestion()
     {
         answerTexts.Clear();
-
 
         num1 = Random.Range(1, 10);
         num2 = Random.Range(1, 10);
@@ -52,13 +57,29 @@ public class SumGenerator : MonoBehaviour
         {
             case MathOperator.plus:
                 op = '+';
-                num1 = Random.Range(1, ((int)SelectedPlus + 1) * 10);
-                num2 = Random.Range(1, ((int)SelectedPlus + 1) * 10);
+                if ((int)SelectedPlus == 0)
+                {
+                    num1 = Random.Range(1, ((int)SelectedPlus + 1) * 10);
+                    num2 = Random.Range(1, ((int)SelectedPlus + 1) * 10);
+                }
+                else
+                {
+                    num1 = Random.Range((int)SelectedPlus * 10, ((int)SelectedPlus + 1) * 10);
+                    num2 = Random.Range((int)SelectedPlus * 10, ((int)SelectedPlus + 1) * 10);
+                }
                 break;
             case MathOperator.min:
                 op = '-';
-                num1 = Random.Range(1, ((int)SelectedPlus + 1) * 10);
-                num2 = Random.Range(1, num1);
+                if ((int)SelectedMin == 0)
+                {
+                    num1 = Random.Range(1, ((int)SelectedPlus + 1) * 10);
+                    num2 = Random.Range(1, num1);
+                }
+                else
+                {
+                    num1 = Random.Range((int)SelectedPlus * 10, ((int)SelectedPlus + 1) * 10);
+                    num2 = Random.Range((int)SelectedPlus * 10, num1);
+                }
                 break;
             case MathOperator.keer:
                 if (SelectedKeer == KeerOption.random)
@@ -101,6 +122,106 @@ public class SumGenerator : MonoBehaviour
         GenerateAnswer();
     }
 
+    /*    void GenerateAnswer()
+        {
+            *//*        int correctAnswer = 0;
+                    switch (op)
+                    {
+                        case '+':
+                            correctAnswer = num1 + num2;
+                            break;
+                        case '-':
+                            correctAnswer = num1 - num2;
+                            break;
+                        case '*':
+                            correctAnswer = num1 * num2;
+                            break;
+                        case '/':
+                            correctAnswer = num1 / num2;
+                            break;
+                    }
+
+                    if (GameModeController.settings.sabermode == 1)
+                    {
+                        answerOptions = new int[3];
+                    }
+                    else
+                    {
+                        answerOptions = new int[4];
+                    }
+
+                    for (int i = 0; i < answerOptions.Length; i++)
+                    {
+                        if (i == correctAnswerIndex)
+                        {
+                            answerOptions[i] = correctAnswer;
+                        }
+                        else
+                        {
+                            int offset = Random.Range(1, 4);
+                            if (Random.Range(0, 2) == 0)
+                            {
+                                answerOptions[i] = correctAnswer + offset;
+                            }
+                            else
+                            {
+                                answerOptions[i] = correctAnswer - offset;
+                            }
+                        }
+                    }
+
+                    Shuffle(answerOptions);
+
+                    for (int i = 0; i < answerTexts.Count; i++)
+                    {
+                        answerTexts[i].SetText(answerOptions[i].ToString());
+                    }*//*
+
+            int correctAnswer = 0;
+            switch (op)
+            {
+                case '+':
+                    correctAnswer = num1 + num2;
+                    break;
+                case '-':
+                    correctAnswer = num1 - num2;
+                    break;
+                case '*':
+                    correctAnswer = num1 * num2;
+                    break;
+                case '/':
+                    correctAnswer = num1 / num2;
+                    break;
+            }
+
+            int numOptions = (GameModeController.settings.sabermode == 1) ? 3 : 4;
+            answerOptions = new int[numOptions];
+
+            for (int i = 0; i < numOptions; i++)
+            {
+                if (i == correctAnswerIndex)
+                {
+                    answerOptions[i] = correctAnswer;
+                }
+                else
+                {
+                    int offset = Random.Range(1, 4);
+                    int randomSign = Random.Range(0, 2);
+                    answerOptions[i] = correctAnswer + (randomSign == 0 ? offset : -offset);
+                }
+            }
+
+            Shuffle(answerOptions);
+
+            for (int i = 0; i < answerTexts.Count; i++)
+            {
+                answerTexts[i].SetText(answerOptions[i].ToString());
+            }
+
+
+        }
+*/
+
     void GenerateAnswer()
     {
         int correctAnswer = 0;
@@ -120,34 +241,28 @@ public class SumGenerator : MonoBehaviour
                 break;
         }
 
-        if (GameModeController.settings.sabermode == 1)
-        {
-            answerOptions = new int[3];
-        }
-        else
-        {
-            answerOptions = new int[4];
-        }
+        int numOptions = (GameModeController.settings.sabermode == 1) ? 3 : 4;
+        answerOptions = new int[numOptions];
 
-        for (int i = 0; i < answerOptions.Length; i++)
+        List<int> possibleOptions = new List<int>();
+        possibleOptions.Add(correctAnswer);
+
+        for (int i = 0; i < numOptions - 1; i++)
         {
-            if (i == correctAnswerIndex)
+            int offset = Random.Range(1, 4);
+            int randomSign = Random.Range(0, 2);
+            int option = correctAnswer + (randomSign == 0 ? offset : -offset);
+
+            while (possibleOptions.Contains(option))
             {
-                answerOptions[i] = correctAnswer;
+                offset = Random.Range(1, 4);
+                randomSign = Random.Range(0, 2);
+
+                option = correctAnswer + (randomSign == 0 ? offset : -offset);
             }
-            else
-            {
-                int offset = Random.Range(1, 4);
-                if (Random.Range(0, 2) == 0)
-                {
-                    answerOptions[i] = correctAnswer + offset;
-                }
-                else
-                {
-                    answerOptions[i] = correctAnswer - offset;
-                }
-            }
+            possibleOptions.Add(option);
         }
+        answerOptions = possibleOptions.ToArray();
 
         Shuffle(answerOptions);
 
@@ -205,7 +320,6 @@ public class SumGenerator : MonoBehaviour
         }
     }
 
-
     private void ShowCorrectAnswer()
     {
         int correctAnswer = 0;
@@ -231,8 +345,8 @@ public class SumGenerator : MonoBehaviour
 
     IEnumerator StartGame()
     {
-        float timeLeft = 5.0f;
-        while (timeLeft > 0)
+        float timeLeft = 3.0f;
+        while (timeLeft >= 0)
         {
             question.text = Mathf.RoundToInt(timeLeft).ToString();
             yield return new WaitForSeconds(1.0f);
@@ -252,7 +366,10 @@ public class SumGenerator : MonoBehaviour
                 score.GetScores(false);
                 counter.questionCount++;
                 ShowCorrectAnswer();
-                wrongAnswers.Add(question.text);
+                if (!wrongAnswers.Contains(question.text))
+                {
+                    wrongAnswers.Add(question.text);
+                }
                 question.color = Color.red;
                 yield return new WaitForSeconds(2.0f);
             }

@@ -1,3 +1,4 @@
+using CarouselUI;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -55,7 +56,14 @@ public class EndHandler : MonoBehaviour
         }
         else
         {
-            sumsTxt.text = "Je hebt alle sommen goed gemaakt!";
+            if (CarouselUIElement._currentIndex == 0)
+            {
+                sumsTxt.text = "Je hebt alle sommen goed gemaakt!";
+            }
+            else if (CarouselUIElement._currentIndex == 1)
+            {
+                sumsTxt.text = "You did all the sums right!";
+            }
         }
 
         Time.timeScale = 0;

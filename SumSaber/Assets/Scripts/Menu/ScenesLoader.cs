@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ScenesLoader : MonoBehaviour
 {
-    public void LoadGameScene()
+    AudioManager audioManager;
+
+    private void Awake()
     {
-        SceneManager.LoadScene(1);
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+    public void LoadHomeScene()
+    {
+        SceneManager.LoadScene(0);
         SumGenerator.wrongAnswers.Clear();
         Time.timeScale = 1;
     }
 
-    public void LoadMenuScene()
+    public void LoadGameScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         SumGenerator.wrongAnswers.Clear();
         Time.timeScale = 1;
     }
@@ -26,7 +33,15 @@ public class ScenesLoader : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void LoadOptionMenuScene()
+    public void LoadModeMenuScene2()
+    {
+        SceneManager.LoadScene(2);
+        SumGenerator.wrongAnswers.Clear();
+        audioManager.PlayMusic(audioManager.menu);
+        Time.timeScale = 1;
+    }
+
+    public void LoadSettingMenuScene()
     {
         SceneManager.LoadScene(3);
         Time.timeScale = 1;

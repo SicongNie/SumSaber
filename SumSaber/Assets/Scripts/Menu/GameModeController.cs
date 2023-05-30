@@ -10,20 +10,6 @@ public class GameModeController : MonoBehaviour
     public static MathOperator SelectedOperator;
     public static GameSettings settings;
 
-    public Button numQuestions10Button;
-    public Button numQuestions30Button;
-    public Button numQuestions50Button;
-
-    public Button generationSpeedButton_easy;
-    public Button generationSpeedButton_normal;
-    public Button generationSpeedButton_hard;
-
-    public Button gameModeButton_NoArrow;
-    public Button gameModeButton_Arrow;
-
-    public Button gameModeButton_OneHand;
-    public Button gameModeButton_TwoHand;
-
     public enum PlusOption { Plus10, Plus20, Plus30, Plus40, Plus50, Plus60, Plus70, Plus80, Plus90, Plus100 }
     public static PlusOption SelectedPlus;
 
@@ -38,6 +24,20 @@ public class GameModeController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI textMeshPro;
     [SerializeField] private TextMeshProUGUI detailText;
+
+    [SerializeField] Button numQuestions10Button;
+    [SerializeField] Button numQuestions30Button;
+    [SerializeField] Button numQuestions50Button;
+
+    [SerializeField] Button generationSpeedButton_easy;
+    [SerializeField] Button generationSpeedButton_normal;
+    [SerializeField] Button generationSpeedButton_hard;
+
+    [SerializeField] Button gameModeButton_NoArrow;
+    [SerializeField] Button gameModeButton_Arrow;
+
+    [SerializeField] Button gameModeButton_OneHand;
+    [SerializeField] Button gameModeButton_TwoHand;
 
 
     void Start()
@@ -60,12 +60,12 @@ public class GameModeController : MonoBehaviour
         }
         else if (CarouselUIElement._currentIndex == 1)
         {
-            if(SelectedOperator.ToString()== "plus")
+            if (SelectedOperator.ToString() == "plus")
             {
                 textMeshPro.text = "Mode: plus";
             }
 
-            if(SelectedOperator.ToString() == "min")
+            if (SelectedOperator.ToString() == "min")
             {
                 textMeshPro.text = "Mode: min";
             }
@@ -74,7 +74,6 @@ public class GameModeController : MonoBehaviour
             {
                 textMeshPro.text = "Mode: divide";
             }
-
 
             if (SelectedOperator.ToString() == "keer")
             {
@@ -106,7 +105,6 @@ public class GameModeController : MonoBehaviour
     {
         settings.sabermode = mode;
         UpdateButtonColors_saberMode();
-
     }
 
     void UpdateButtonColors_numQuestions()

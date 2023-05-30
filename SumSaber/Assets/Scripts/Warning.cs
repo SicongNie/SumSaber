@@ -13,7 +13,6 @@ public class Warning : MonoBehaviour
     {
         textMesh = GetComponent<TextMeshPro>();
         StartCoroutine(FadeOut());
-
     }
 
     void Update()

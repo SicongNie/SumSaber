@@ -50,6 +50,58 @@ MonoBehaviour:
     m_Localized: Divide
     m_Metadata:
       m_Items: []
+  - m_Id: 360273468391424
+    m_Localized: sums
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360352732348416
+    m_Localized: Slow speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360520131215360
+    m_Localized: Normal speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360636841918464
+    m_Localized: Fast speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360769771995136
+    m_Localized: 10 sums
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360823471669248
+    m_Localized: 30 sums
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360885316681728
+    m_Localized: 50 sums
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360944783523840
+    m_Localized: No Arrows
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361031601422336
+    m_Localized: With Arrows
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361121674100736
+    m_Localized: Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366141358407680
+    m_Localized: Result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367786532208640
+    m_Localized: 'The sums you made wrong:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3203296090849280
+    m_Localized: Paused
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

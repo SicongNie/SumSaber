@@ -47,6 +47,62 @@ MonoBehaviour:
     m_Key: id_deel
     m_Metadata:
       m_Items: []
+  - m_Id: 360273468391424
+    m_Key: id_som
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360352732348416
+    m_Key: id_lage snelheid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360520131215360
+    m_Key: id_normale snelheid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360636841918464
+    m_Key: id_hoge snelheid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360769771995136
+    m_Key: id_10 sommen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360823471669248
+    m_Key: id_30 sommen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360885316681728
+    m_Key: id_50 sommen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360944783523840
+    m_Key: id_geen pijl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361031601422336
+    m_Key: id_met pijlen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361121674100736
+    m_Key: id_nummer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366141358407680
+    m_Key: id_resultaat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367786532208640
+    m_Key: id_foutsommen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3203296090849280
+    m_Key: id_Gepauzeerd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3203478790537216
+    m_Key: 
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

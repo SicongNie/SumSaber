@@ -13,18 +13,25 @@ public class Numbers : MonoBehaviour
     TextMeshProUGUI counterText;
 
     public bool canTrigger = true;
-
+    public static bool GameIsEnd;
 
     void Start()
     {
         counterText = GetComponent<TextMeshProUGUI>();
         maxQuestionCount = GameModeController.settings.numQuestions;
-        Debug.Log(maxQuestionCount);
     }
 
     void Update()
     {
         counterText.text = (maxQuestionCount - questionCount).ToString();
+        if (questionCount >= maxQuestionCount)
+        {
+            GameIsEnd = true;
+        }
+        else
+        {
+            GameIsEnd = false;
+        }
     }
 
     public void EndGame()
