@@ -59,6 +59,33 @@ public class Lightsaber : MonoBehaviour
             if (Vector3.Angle(objectCut._blade.transform.position - objectCut.previousPos, other.transform.up) > 100)
             {
                 CutContinue();
+                string layerName = LayerMask.LayerToName(other.gameObject.layer);
+                if (layerName == layer)
+                {
+                    isTriggered = true;
+                }
+                else
+                {
+                    isTriggered = false;
+                    GameObject objectwarning = Instantiate(warning, other.transform.GetChild(0).GetChild(0).position, Quaternion.identity);
+                    if (CarouselUIElement._currentIndex == 0)
+                    {
+                        objectwarning.GetComponent<TextMeshPro>().text = "Foute Kleur";
+                    }
+                    else if (CarouselUIElement._currentIndex == 1)
+                    {
+                        objectwarning.GetComponent<TextMeshPro>().text = "Wrong Color";
+                    }
+
+                    Destroy(objectwarning, 1f);
+                }
+                objectCut.CutObject(other);
+                answer = other.transform.GetChild(0).GetComponent<TextMeshPro>();
+
+                GameObject objecteffect = Instantiate(cuteffect, other.transform.position, Quaternion.identity);
+                objecteffect.GetComponent<Renderer>().material = other.GetComponent<Renderer>().material;
+                Destroy(objecteffect, 2f);
+                checkangle = false;
             }
             else
             {

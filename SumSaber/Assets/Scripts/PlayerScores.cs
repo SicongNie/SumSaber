@@ -5,31 +5,47 @@ using UnityEngine;
 
 public class PlayerScores : MonoBehaviour
 {
-    public int score = 0;
+    public float score = 10.0f;
 
     TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI scoresTxt;
+    [SerializeField] TextMeshProUGUI scoreTxt_Result;
 
     public void Start()
     {
-        scoreText= GetComponent<TextMeshProUGUI>();
+        scoreText = GetComponent<TextMeshProUGUI>();
     }
 
     public void Update()
     {
-        scoreText.text = score.ToString();
-        scoresTxt.text = score.ToString();
+        if (score < 0)
+        {
+            score = 0;
+        }
+        scoreText.text = score.ToString("F1");
+        scoreTxt_Result.text = score.ToString("F1");
     }
 
     public void GetScores(bool a)
     {
         if (a)
         {
-            score += 10;
+            return;
         }
         else
         {
-            score -= 10;
+            if (GameModeController.settings.numQuestions == 10)
+            {
+                score -= 1.0f;
+            }
+            else if (GameModeController.settings.numQuestions == 30)
+            {
+                score -= 0.3f;
+            }
+            else if (GameModeController.settings.numQuestions == 50)
+            {
+                score -= 0.2f;
+            }
+
         }
     }
 

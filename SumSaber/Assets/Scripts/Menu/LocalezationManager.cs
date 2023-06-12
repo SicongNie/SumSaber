@@ -28,7 +28,7 @@ public class LocalezationManager : MonoBehaviour
 
     private void Update()
     {
-        if(isTriggered == true)
+        if (isTriggered == true)
         {
             ChangeLocale();
             isTriggered = false;
