@@ -30,6 +30,10 @@ public class Lightsaber : MonoBehaviour
 
     public ObjectCut objectCut;
 
+    private bool hasCollided = false;
+    private float cooldownTime = 1f;
+    private float cooldownTimer = 0f;
+
     void Start()
     {
         cutsound = GetComponent<AudioSource>();
@@ -50,56 +54,45 @@ public class Lightsaber : MonoBehaviour
             sumGenerator.ShowQuesionAnswer();
             isTriggered = false;
         }
+        if (cooldownTimer > 0f)
+        {
+            cooldownTimer -= Time.deltaTime;
+        }
+
+        if (cooldownTimer <= 0f && hasCollided)
+        {
+            hasCollided = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (GameModeController.settings.gamemode == 1)
+        if (!hasCollided && cooldownTimer <= 0f)
         {
-            if (Vector3.Angle(objectCut._blade.transform.position - objectCut.previousPos, other.transform.up) > 100)
+            if (GameModeController.settings.gamemode == 1)
             {
-                CutContinue();
-                string layerName = LayerMask.LayerToName(other.gameObject.layer);
-                if (layerName == layer)
+                if (Vector3.Angle(objectCut._blade.transform.position - objectCut.previousPos, other.transform.up) > 140)
                 {
-                    isTriggered = true;
+                    CutContinue();
                 }
                 else
                 {
-                    isTriggered = false;
                     GameObject objectwarning = Instantiate(warning, other.transform.GetChild(0).GetChild(0).position, Quaternion.identity);
-                    if (CarouselUIElement._currentIndex == 0)
-                    {
-                        objectwarning.GetComponent<TextMeshPro>().text = "Foute Kleur";
-                    }
-                    else if (CarouselUIElement._currentIndex == 1)
-                    {
-                        objectwarning.GetComponent<TextMeshPro>().text = "Wrong Color";
-                    }
-
+                    objectwarning.GetComponent<TextMeshPro>().text = "Miss";
                     Destroy(objectwarning, 1f);
+                    hapticInteracble.TriggerHaptic();
+                    PlayCutSound_Faild();
                 }
-                objectCut.CutObject(other);
-                answer = other.transform.GetChild(0).GetComponent<TextMeshPro>();
-
-                GameObject objecteffect = Instantiate(cuteffect, other.transform.position, Quaternion.identity);
-                objecteffect.GetComponent<Renderer>().material = other.GetComponent<Renderer>().material;
-                Destroy(objecteffect, 2f);
-                checkangle = false;
             }
             else
             {
-                GameObject objectwarning = Instantiate(warning, other.transform.GetChild(0).GetChild(0).position, Quaternion.identity);
-                objectwarning.GetComponent<TextMeshPro>().text = "Miss";
-                hapticInteracble.TriggerHaptic();
-                PlayCutSound_Faild();
+                CutContinue();
             }
+            objectCut.GetPositions();
         }
-        else
-        {
-            CutContinue();
-        }
-        objectCut.GetPositions();
+        cooldownTimer = cooldownTime;
+        hasCollided = true;
+
     }
 
     private void OnTriggerExit(Collider other)

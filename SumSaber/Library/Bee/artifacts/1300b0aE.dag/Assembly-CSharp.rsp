@@ -437,6 +437,7 @@
 "Assets/Scripts/Menu/ButtonSoundEffect.cs"
 "Assets/Scripts/Menu/Deel_OptionsBtn_ColorChange.cs"
 "Assets/Scripts/Menu/DetailsMultiLanguages.cs"
+"Assets/Scripts/Menu/DynamicScrollView.cs"
 "Assets/Scripts/Menu/EndHandler.cs"
 "Assets/Scripts/Menu/GameModeController.cs"
 "Assets/Scripts/Menu/GameSetting.cs"

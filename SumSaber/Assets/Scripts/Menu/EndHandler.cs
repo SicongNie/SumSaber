@@ -14,9 +14,12 @@ public class EndHandler : MonoBehaviour
     [SerializeField] GameObject leftcontroller1;
     [SerializeField] GameObject rightcontroller1;
 
-    [SerializeField] TextMeshProUGUI sumsTxt;
-    [SerializeField] GameObject scrollViewContent;
-    [SerializeField] GameObject listItemPrefab;
+
+    [SerializeField] DynamicScrollView dynamicScrollView;
+
+    /*    [SerializeField] TextMeshProUGUI sumsTxt;
+        [SerializeField] GameObject scrollViewContent;
+        [SerializeField] GameObject listItemPrefab;*/
 
     private void Start()
     {
@@ -36,35 +39,7 @@ public class EndHandler : MonoBehaviour
         leftcontroller1.SetActive(true);
         rightcontroller1.SetActive(true);
 
-        foreach (Transform child in scrollViewContent.transform)
-        {
-            Destroy(child.gameObject);
-        }
-
-        List<string> wrongAnswers = SumGenerator.wrongAnswers;
-        if (wrongAnswers.Count > 0)
-        {
-            foreach (string answer in wrongAnswers)
-            {
-                //  wrongAnswersText += answer + "\n";
-                GameObject listItem = Instantiate(listItemPrefab, scrollViewContent.transform);
-                TextMeshProUGUI listItemText = listItem.GetComponentInChildren<TextMeshProUGUI>();
-                listItemText.text = answer;
-                listItemText.enabled = true;
-
-            }
-        }
-        else
-        {
-            if (CarouselUIElement._currentIndex == 0)
-            {
-                sumsTxt.text = "Je hebt alle sommen goed gemaakt!";
-            }
-            else if (CarouselUIElement._currentIndex == 1)
-            {
-                sumsTxt.text = "You did all the sums right!";
-            }
-        }
+        dynamicScrollView.ShowResult();
 
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;

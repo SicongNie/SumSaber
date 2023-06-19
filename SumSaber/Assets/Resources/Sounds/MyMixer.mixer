@@ -78,8 +78,12 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: c8e84f065e5db9e42a61ada8488f6a84
+    name: countdown
   - guid: d91665dc63c7c5944bd1aa7a977c14bc
     name: music
+  - guid: ecc280fce3e4c5347aeb9b946289fb0d
+    name: sfx
   m_AudioMixerGroupViews:
   - guids:
     - e8ef24e3e9ec41244aa60dd5ea6ca34d
@@ -137,6 +141,7 @@ AudioMixerSnapshotController:
   m_FloatValues:
     c8e84f065e5db9e42a61ada8488f6a84: -0.083747745
     51f7036ceb8fbfa418a9c6f8b69cf7b8: 0
+    ecc280fce3e4c5347aeb9b946289fb0d: 9.097023
     b20286dd809a2334ab3a449739f52b45: 0
     a09bce2ee1d1a6e4b890c1aa6fc2ce19: -80
   m_TransitionOverrides: {}
@@ -146,7 +151,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Coundown
+  m_Name: Countdown
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: fd4ad63804da7f347a0e371cb07e7c1f
   m_Children: []

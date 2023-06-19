@@ -34,6 +34,8 @@ public class SumGenerator : MonoBehaviour
 
     AudioManager audioManager;
 
+    private string previousProblem = "";
+
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
@@ -113,6 +115,13 @@ public class SumGenerator : MonoBehaviour
 
         }
         string problemText = string.Format("{0} {1} {2} = ?", num1, op, num2);
+        if (problemText == previousProblem)
+        {
+            GenerateQuestion();
+            return;
+        }
+        previousProblem = problemText;
+
         question.color = Color.white;
         question.text = problemText;
         if (GenerateObjectEvent != null)

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance;
+
     [Header("Audio Sources")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
@@ -18,7 +21,9 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip CountDown;
 
-    public static AudioManager instance;
+    [Header("Audio Mixer")]
+    public AudioMixer myMixer;
+
 
     private void Awake()
     {
@@ -36,6 +41,19 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayMusic(menu);
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            float volume = PlayerPrefs.GetFloat("MusicVolume");
+            myMixer.SetFloat("music", Mathf.Log10(volume) * 20);
+        }
+
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            float volume = PlayerPrefs.GetFloat("SFXVolume");
+            myMixer.SetFloat("sfx", Mathf.Log10(volume) * 20);
+            myMixer.SetFloat("countdown", Mathf.Log10(volume) * 20);
+        }
+
     }
 
     public void PlayMusic(AudioClip clip)
@@ -53,6 +71,7 @@ public class AudioManager : MonoBehaviour
     {
         sfxSource_Countdown.PlayOneShot(clip);
     }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
