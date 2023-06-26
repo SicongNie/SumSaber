@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static GameModeController;
 
+//This script is used to update the color of the buttons in the Plus options list
 public class Plus_OptionsBtn_ColorChange : MonoBehaviour
 {
     [SerializeField] Button optionButton_plus_10;

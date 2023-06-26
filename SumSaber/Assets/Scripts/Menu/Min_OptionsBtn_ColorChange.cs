@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static GameModeController;
 
+//This script is used to update the color of the buttons in the Min options list
 public class Min_OptionsBtn_ColorChange : MonoBehaviour
 {
     [SerializeField] Button optionButton_min_10;

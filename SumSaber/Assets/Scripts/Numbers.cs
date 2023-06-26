@@ -4,10 +4,11 @@ using TMPro;
 using UnityEngine;
 using static GameModeController;
 
+//This script is used to count the number of sums in the game scene.
 public class Numbers : MonoBehaviour
 {
-    public int questionCount = 0;
-    public int maxQuestionCount;
+    public int questionCount = 0; // the current number of sums in the game scene
+    public int maxQuestionCount; // the max number of sums in the game scene
 
 
     TextMeshProUGUI counterText;
@@ -18,12 +19,13 @@ public class Numbers : MonoBehaviour
     void Start()
     {
         counterText = GetComponent<TextMeshProUGUI>();
-        maxQuestionCount = GameModeController.settings.numQuestions;
+        maxQuestionCount = GameModeController.settings.numQuestions; // the max number of sums in the game scene is set by the game option
     }
 
     void Update()
     {
         counterText.text = (maxQuestionCount - questionCount).ToString();
+        //if the number of sums in the game scene is equal to the max number of sums, the game is over
         if (questionCount >= maxQuestionCount)
         {
             GameIsEnd = true;
@@ -34,6 +36,7 @@ public class Numbers : MonoBehaviour
         }
     }
 
+   
     public void EndGame()
     {
         GetComponent<EndHandler>().HandleEnd();

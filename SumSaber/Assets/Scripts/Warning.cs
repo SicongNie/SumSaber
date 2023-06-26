@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//This script is used to control the error message on the positons of the cubes when the player gets a question wrong or slices the wrong cubes
 public class Warning : MonoBehaviour
 {
     private float fadeDuration = 1f;
@@ -15,10 +16,13 @@ public class Warning : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
+    // message move forward
     void Update()
     {
         transform.position += Time.deltaTime * transform.forward * 1;
     }
+
+    // message fade out
     private IEnumerator FadeOut()
     {
         Color startColor = textMesh.color;

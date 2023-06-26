@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using static LightSaberColorChange;
 
-
+//This script is used to generate cubes in the game scene based on the settings in the GameModeController.
 public class CubeSpawner : MonoBehaviour
 {
 
@@ -29,12 +29,8 @@ public class CubeSpawner : MonoBehaviour
     public Transform[] rpoints;
 
     public Transform[] onehandcubes;
-    public GameObject bluesaber;
 
-    /*    public GameObject[] cubes;
-        public Transform[] points;
-        TextMeshPro number;
-    */
+    public GameObject bluesaber;
 
     private int[] r = { 0, 2 };
 
@@ -48,20 +44,22 @@ public class CubeSpawner : MonoBehaviour
 
     void Start()
     {
-        distance = disappearPosition.position.z - transform.position.z;
-        speed = GameModeController.settings.generationSpeed;
-        if (GameModeController.settings.sabermode == 1)
+        distance = disappearPosition.position.z - transform.position.z; 
+        speed = GameModeController.settings.generationSpeed;  // set the speed of the cubes based on the settings in the GameModeController.
+        if (GameModeController.settings.sabermode == 1) // if the game mode is one hand mode, disable the blue saber.
         {
             bluesaber.SetActive(false);
         }
     }
 
+    //Calculates and returns the spawn time based on the distance and speed variables.
     public float GetSpawnTime()
     {
         float time = -distance / speed;
         return time;
     }
 
+    // Generates cubes based on the game mode and saber mode settings
     public void GenerateCubes(string generatedString)
     {
         if (GameModeController.settings.gamemode == 0)
@@ -157,18 +155,6 @@ public class CubeSpawner : MonoBehaviour
 
     private void GenerateBlueCube()
     {
-        /*        foreach (Transform point in bpoints)
-                {
-                    GameObject bcube = Instantiate(bluecube, point);
-                    bnumber = bcube.transform.GetChild(0).GetComponent<TextMeshPro>();
-                    sumGenerator.answerTexts.Add(bnumber);
-
-                    bcube.transform.localPosition = Vector3.zero;
-                    bcube.transform.Rotate(transform.forward, 90 * r[Random.Range(0, 2)]);
-                    bnumber.transform.rotation = Quaternion.LookRotation(-transform.forward, transform.up);
-                    bcube.GetComponent<Cube>().SetMoveSpeed(speed);
-                }*/
-
         GameObject cubePrefab;
 
         switch (LightSaberColorChange.SelectedLeftHandSaber)
@@ -290,22 +276,7 @@ public class CubeSpawner : MonoBehaviour
         }
     }
 
-    /*    public void GenerateRandomCubes()
-        {
-            foreach (Transform point in points)
-            {
-                GameObject cube = Instantiate(cubes[Random.Range(0, 2)], point);
-                number = cube.transform.GetChild(0).GetComponent<TextMeshPro>();
-                sumGenerator.answerTexts.Add(number);
-
-                cube.transform.localPosition = Vector3.zero;
-                cube.transform.Rotate(transform.forward, 90 * r[Random.Range(0, 2)]);
-                number.transform.rotation = Quaternion.LookRotation(-transform.forward, transform.up);
-
-                cube.GetComponent<Cube>().SetMoveSpeed(speed);
-            }
-        }*/
-
+    //Generate cubes once the sum is generated
     private void OnEnable()
     {
         SumGenerator.GenerateObjectEvent += GenerateCubes;

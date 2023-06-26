@@ -7378,9 +7378,9 @@ MonoBehaviour:
   Button_Right_Red: {fileID: 1443436424}
   Button_Right_Green: {fileID: 6468814}
   Button_Right_Yellow: {fileID: 425609822}
-  Button_Right_Blue: {fileID: 1683308483}
-  Button_Right_Orange: {fileID: 2042214585}
-  Button_Right_Purple: {fileID: 350237751}
+  Button_Left_Blue: {fileID: 1683308483}
+  Button_Left_Orange: {fileID: 2042214585}
+  Button_Left_Purple: {fileID: 350237751}
 --- !u!1 &566735375
 GameObject:
   m_ObjectHideFlags: 0
@@ -8764,7 +8764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SFX
+  m_text: Effect
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

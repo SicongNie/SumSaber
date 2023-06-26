@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script controls the transition of fog color of the backgrond and density based on the progress of the questions
 public class FogColorChange : MonoBehaviour
 {
     public Color targetColor;
@@ -25,6 +26,7 @@ public class FogColorChange : MonoBehaviour
     private void Update()
     {
         int c = counter.maxQuestionCount / 3;
+        //when the question count is 1/3 of the max question count, the fog color will change to the target color.
         if (counter.questionCount == c)
         {
             transitionTimer += Time.deltaTime;
@@ -41,6 +43,7 @@ public class FogColorChange : MonoBehaviour
             }
           
         }
+        //when the question count is 2/3 of the max question count, the fog color will change to the target color2.
         if (counter.questionCount == c * 2)
         {
             transitionTimer2 += Time.deltaTime;

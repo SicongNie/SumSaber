@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
+//Script for various audio-related tasks 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-
     [Header("Audio Sources")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource sfxSource;
@@ -24,7 +24,8 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Mixer")]
     public AudioMixer myMixer;
 
-
+    //Make sure the audio manager is not destroyed when changing scenes
+    //And make sure there is only one instance of the audio manager
     private void Awake()
     {
         if (instance == null)
@@ -41,12 +42,13 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayMusic(menu);
+
+        //Set volume of backgrond music and sfx
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
             float volume = PlayerPrefs.GetFloat("MusicVolume");
             myMixer.SetFloat("music", Mathf.Log10(volume) * 20);
         }
-
         if (PlayerPrefs.HasKey("SFXVolume"))
         {
             float volume = PlayerPrefs.GetFloat("SFXVolume");
@@ -56,6 +58,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    //play audio clips
     public void PlayMusic(AudioClip clip)
     {
         musicSource.clip = clip;
@@ -72,6 +75,7 @@ public class AudioManager : MonoBehaviour
         sfxSource_Countdown.PlayOneShot(clip);
     }
 
+    //keep the music playing between scenes
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -94,5 +98,4 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = menu;
         }
     }
-
 }

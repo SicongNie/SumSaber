@@ -4,11 +4,13 @@ using UnityEngine;
 using CarouselUI;
 using TMPro;
 
+//This script manages the languages of the game mode explanations
 public class DetailsMultiLanguages : MonoBehaviour
 {
 
     public void ShowText(int index)
     {
+        //if the index of the carousel is 0, the language is Dutch
         if (CarouselUIElement._currentIndex == 0)
         {
             if (index == 0)
@@ -53,7 +55,8 @@ public class DetailsMultiLanguages : MonoBehaviour
             }
 
 
-        }
+        } 
+        //if the index of the carousel is 1, the language is English
         else if (CarouselUIElement._currentIndex == 1)
         {
             if (index == 0)

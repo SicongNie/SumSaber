@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using static GameModeController;
 
+
+//This script is used to update the color of the buttons in the Deel options list
 public class Deel_OptionsBtn_ColorChange : MonoBehaviour
 {
     [SerializeField] Button optionButton_deel_1;

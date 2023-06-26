@@ -6,6 +6,7 @@ using UnityEngine.XR;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+//This script is for functions of the pauze menu
 public class PauzeMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
@@ -15,6 +16,7 @@ public class PauzeMenu : MonoBehaviour
     [SerializeField] Canvas SumCanvas;
     [SerializeField] GameObject Cubes;
 
+    //Make sure only the right controller is active when the game is unpaused
     [SerializeField] GameObject saber_righthand;
     [SerializeField] GameObject saber_lefthand;
     [SerializeField] GameObject controller_righthand;
@@ -27,7 +29,7 @@ public class PauzeMenu : MonoBehaviour
 
     public void PauseButtonPressed(InputAction.CallbackContext context)
     {
-        if (context.performed && Numbers.GameIsEnd == false)
+        if (context.performed && Numbers.GameIsEnd == false) 
         {
             if (GameIsPaused)
             {
@@ -40,6 +42,7 @@ public class PauzeMenu : MonoBehaviour
         }
     }
 
+    // Resumes the game from the pause state.
     public void Resume()
     {
         pauzeMenuUI.SetActive(false);
@@ -63,6 +66,7 @@ public class PauzeMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
+    // Pauses the game.
     void Pauze()
     {
         pauzeMenuUI.SetActive(true);
@@ -86,6 +90,5 @@ public class PauzeMenu : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
-
 
 }

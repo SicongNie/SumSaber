@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// The script manages the visibility of UI elements in the scene ModeMenu based on the selected operator. 
+// It allows you to navigate between the options menu and the mode menu in the game.
 public class OptionsMenuManager : MonoBehaviour
 {
     [SerializeField] private Canvas optionscanvas;

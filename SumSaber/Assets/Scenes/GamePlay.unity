@@ -17697,8 +17697,8 @@ MonoBehaviour:
   sumcanvas: {fileID: 1203669600}
   leftcontroller: {fileID: 1791914118}
   rightcontroller: {fileID: 302172684}
-  leftcontroller1: {fileID: 9123050561107904672}
-  rightcontroller1: {fileID: 9123050561107904671}
+  leftcontroller_menu: {fileID: 9123050561107904672}
+  rightcontroller_menu: {fileID: 9123050561107904671}
   dynamicScrollView: {fileID: 937873666}
 --- !u!1 &1767595945
 GameObject:
@@ -21718,7 +21718,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090948322}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1, z: 16.11255}
+  m_LocalPosition: {x: 0, y: 1.1, z: 16.11255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
