@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script is used to set the speed of the cubes in the game scene.
 public class Cube : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private float moveSpeed;
+
+   public void SetMoveSpeed(float speed)
     {
-      
+        moveSpeed = speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position += Time.deltaTime * transform.forward * 2;
+        transform.position += Time.deltaTime * transform.forward * moveSpeed;
     }
+
 }

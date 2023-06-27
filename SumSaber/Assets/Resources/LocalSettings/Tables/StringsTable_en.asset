@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: StringsTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 20ed4fa0180a2c443bd92b18b984d64f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 2470497157120
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4354767257600
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8360025587712
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8657749868544
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 79481433423872
+    m_Localized: Choose a mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84458159669248
+    m_Localized: Multiply
+    m_Metadata:
+      m_Items: []
+  - m_Id: 84705241923584
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 137581637074944
+    m_Localized: Divide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360273468391424
+    m_Localized: sums
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360352732348416
+    m_Localized: Slow speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360520131215360
+    m_Localized: Normal speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360636841918464
+    m_Localized: Fast speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360769771995136
+    m_Localized: 10 sums
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360823471669248
+    m_Localized: 30 sums
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360885316681728
+    m_Localized: 50 sums
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360944783523840
+    m_Localized: No Arrows
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361031601422336
+    m_Localized: With Arrows
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361121674100736
+    m_Localized: Number
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366141358407680
+    m_Localized: Result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367786532208640
+    m_Localized: 'The sums you made wrong:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3203296090849280
+    m_Localized: Paused
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3203478790537216
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13344585855729664
+    m_Localized: Minus
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
