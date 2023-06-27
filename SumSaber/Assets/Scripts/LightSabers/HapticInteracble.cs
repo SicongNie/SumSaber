@@ -7,8 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class HapticInteracble : MonoBehaviour
 {
     [Range(0, 1)]
-    public float intensity;
-    public float duration;
+    [SerializeField] public float intensity;   //1
+    [SerializeField] public float duration;    //0.2
 
     private XRBaseController controller;
 

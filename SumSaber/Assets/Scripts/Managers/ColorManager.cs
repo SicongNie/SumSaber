@@ -7,19 +7,19 @@ using static LightSaberColorChange;
 //This script is used to update the color of the sabers in the game scene based on the selected color in the script LightSaberColorChange.cs
 public class ColorManager : MonoBehaviour
 {
-    public Renderer renderer_RightSaber;
-    [SerializeField] Material material_RightSaber_Red;
-    [SerializeField] Material material_RightSaber_Green;
-    [SerializeField] Material material_RightSaber_Yellow;
+    [SerializeField] public Renderer renderer_RightSaber;  // Player\XR Orign\Camera Offset\RightHand Controller\Lightsaber_Right\Parent\Blade
+    [SerializeField] Material material_RightSaber_Red;     // folder: Assets\Resources\Material\sabers\Red
+    [SerializeField] Material material_RightSaber_Green;   // folder: Assets\Resources\Material\sabers\Green
+    [SerializeField] Material material_RightSaber_Yellow;  // folder: Assets\Resources\Material\sabers\Yellow
 
-    public Renderer renderer_LeftSaber;
-    [SerializeField] Material material_LeftSaber_Blue;
-    [SerializeField] Material material_LeftSaber_Orange;
-    [SerializeField] Material material_LeftSaber_Purple;
+    [SerializeField] public Renderer renderer_LeftSaber;  // Player\XR Orign\Camera Offset\LeftHand Controller\Lightsaber_Left\Parent\Blade
+    [SerializeField] Material material_LeftSaber_Blue;    // folder: Assets\Resources\Material\sabers\Blue
+    [SerializeField] Material material_LeftSaber_Orange;  // folder: Assets\Resources\Material\sabers\Orange
+    [SerializeField] Material material_LeftSaber_Purple;  // folder: Assets\Resources\Material\sabers\Purple
 
     //Color change for bands in game scene
-    [SerializeField] Renderer rightband;
-    [SerializeField] Renderer leftband;
+    [SerializeField] Renderer rightband;  // Env\Platforms\Platform_Cubes\Right_Band
+    [SerializeField] Renderer leftband;   // Env\Platforms\Platform_Cubes\Left_Band
 
     void Start()
     {

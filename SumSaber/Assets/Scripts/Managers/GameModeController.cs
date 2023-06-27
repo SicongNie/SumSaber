@@ -28,25 +28,25 @@ public class GameModeController : MonoBehaviour
     public static DeelOption SelectedDeel;
 
     //title of the game modes
-    [SerializeField] private TextMeshProUGUI textMeshPro;
+    [SerializeField] private TextMeshProUGUI textMeshPro;               //Options Canavs\Text\Title
 
     //explanation of the game modes --> more details see this script: Assets\Scripts\Menu\DetailsMultiLanguages.cs
-    [SerializeField] private TextMeshProUGUI detailText;
+    [SerializeField] private TextMeshProUGUI detailText;               // Options Canavs\Text\Detail
 
     //buttons in Options Canvas
-    [SerializeField] Button numQuestions10Button;
-    [SerializeField] Button numQuestions30Button;
-    [SerializeField] Button numQuestions50Button;
+    [SerializeField] Button numQuestions10Button;                     // Options Canavs\Buttons\10_Btn
+    [SerializeField] Button numQuestions30Button;                     // Options Canavs\Buttons\30_Btn
+    [SerializeField] Button numQuestions50Button;                     // Options Canavs\Buttons\50_Btn
 
-    [SerializeField] Button generationSpeedButton_easy;
-    [SerializeField] Button generationSpeedButton_normal;
-    [SerializeField] Button generationSpeedButton_hard;
+    [SerializeField] Button generationSpeedButton_easy;               // Options Canavs\Buttons\Easy_Btn
+    [SerializeField] Button generationSpeedButton_normal;             // Options Canavs\Buttons\Normal_Btn
+    [SerializeField] Button generationSpeedButton_hard;               // Options Canavs\Buttons\Hard_Btn
 
-    [SerializeField] Button gameModeButton_NoArrow;
-    [SerializeField] Button gameModeButton_Arrow;
+    [SerializeField] Button gameModeButton_NoArrow;                   // Options Canavs\Buttons\NoArrows_Btn
+    [SerializeField] Button gameModeButton_Arrow;                     // Options Canavs\Buttons\WithArrows_Btn
 
-    [SerializeField] Button gameModeButton_OneHand;
-    [SerializeField] Button gameModeButton_TwoHand;
+    [SerializeField] Button gameModeButton_OneHand;                   // Options Canavs\Buttons\OneHand_Btn
+    [SerializeField] Button gameModeButton_TwoHand;                   // Options Canavs\Buttons\TwoHand_Btn
 
 
     void Start()

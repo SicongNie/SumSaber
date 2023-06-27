@@ -7,11 +7,11 @@ using static GameModeController;
 //This script is used to generate the sums and answers in the game
 public class SumGenerator : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI question;
+    [SerializeField] TextMeshProUGUI question;  // UI\Sum Canvas\Question
 
-    [SerializeField] PlayerScores score;
-    [SerializeField] Numbers counter;
-    [SerializeField] CubeSpawner cubeSpawner;
+    [SerializeField] PlayerScores score;       // UI\Sum Canvas\Score
+    [SerializeField] Numbers counter;          // UI\Sum Canvas\Counter
+    [SerializeField] CubeSpawner cubeSpawner; // Spawner
 
     private int num1;
     private int num2;

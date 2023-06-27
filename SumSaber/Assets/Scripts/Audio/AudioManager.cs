@@ -9,20 +9,20 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     [Header("Audio Sources")]
-    [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource sfxSource;
-    [SerializeField] AudioSource sfxSource_Countdown;
+    [SerializeField] AudioSource musicSource;                    // AudioManager/Music(AudioSource)
+    [SerializeField] AudioSource sfxSource;                      // AudioManager/SFX(AudioSource)
+    [SerializeField] AudioSource sfxSource_Countdown;            // AudioManager/Countdown(AudioSource)
 
     [Header("Audio Clips")]
-    public AudioClip background;
-    public AudioClip menu;
-    public AudioClip button_press;
-    public AudioClip button_hover;
+    [SerializeField] public AudioClip background;                                 // folder: Assets/Resources/Sounds/SumSaber_Track1.wav
+    [SerializeField] public AudioClip menu;                                       // folder: Assets/Resources/Sounds/Menu.wav
+    [SerializeField] public AudioClip button_press;                               // folder: Assets/Resources/Sounds/Button_Press.wav
+    [SerializeField] public AudioClip button_hover;                               // folder: Assets/Resources/Sounds/Button_Hover.wav
 
-    public AudioClip CountDown;
+     [SerializeField] public AudioClip CountDown;                                  // folder: Assets/Resources/Sounds/Countdown.wav
 
     [Header("Audio Mixer")]
-    public AudioMixer myMixer;
+    [SerializeField] public AudioMixer myMixer;                                   //folder: Assets/Resources/Sounds/AudioMixer.mixer
 
     //Make sure the audio manager is not destroyed when changing scenes
     //And make sure there is only one instance of the audio manager

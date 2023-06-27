@@ -10,8 +10,8 @@ public class VolumeSettings : MonoBehaviour
 {
     AudioManager audioManager;
 
-    [SerializeField] private Slider musicSlider;
-    [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider musicSlider;  // UI\Menu Canvas\Panel\Panel_Sound\Slider_music
+    [SerializeField] private Slider sfxSlider;    // UI\Menu Canvas\Panel\Panel_Sound\Slider_sfx
 
     //find audiomanager
     private void Awake()

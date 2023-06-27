@@ -13,13 +13,13 @@ public class LightSaberColorChange : MonoBehaviour
     public enum LeftHandSaber { blue, orange, purple }
     public static LeftHandSaber SelectedLeftHandSaber;
 
-    public Button Button_Right_Red;
-    public Button Button_Right_Green;
-    public Button Button_Right_Yellow;
+    [SerializeField] public Button Button_Right_Red;     // UI\Menu Canvas\Panel\Panel_Lightsabers\Red_Btn
+    [SerializeField] public Button Button_Right_Green;   // UI\Menu Canvas\Panel\Panel_Lightsabers\Green_Btn
+    [SerializeField] public Button Button_Right_Yellow;  // UI\Menu Canvas\Panel\Panel_Lightsabers\Yellow_Btn
 
-    public Button Button_Left_Blue;
-    public Button Button_Left_Orange;
-    public Button Button_Left_Purple;
+    [SerializeField] public Button Button_Left_Blue;    // UI\Menu Canvas\Panel\Panel_Lightsabers\Blue_Btn
+    [SerializeField] public Button Button_Left_Orange;  // UI\Menu Canvas\Panel\Panel_Lightsabers\Orange_Btn
+    [SerializeField] public Button Button_Left_Purple;  // UI\Menu Canvas\Panel\Panel_Lightsabers\Purple_Btn
 
     private void Start()
     {

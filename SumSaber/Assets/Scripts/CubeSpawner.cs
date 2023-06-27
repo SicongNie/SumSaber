@@ -6,45 +6,45 @@ using static LightSaberColorChange;
 public class CubeSpawner : MonoBehaviour
 {
 
-    public GameObject bluecube;
-    public GameObject redcube;
+    [SerializeField] public GameObject bluecube;                // folder: Assets\Resources\Prefabs\Cubes\bCube.prefab
+    [SerializeField] public GameObject redcube;                 // folder: Assets\Resources\Prefabs\Cubes\rCube.prefab
 
-    public GameObject orangecube;
-    public GameObject greencube;
+    [SerializeField] public GameObject orangecube;              // folder: Assets\Resources\Prefabs\Cubes\oCube.prefab
+    [SerializeField] public GameObject greencube;               // folder: Assets\Resources\Prefabs\Cubes\gCube.prefab
 
-    public GameObject purplecube;
-    public GameObject yellowcube;
+    [SerializeField] public GameObject purplecube;              // folder: Assets\Resources\Prefabs\Cubes\pCube.prefab
+    [SerializeField] public GameObject yellowcube;              // folder: Assets\Resources\Prefabs\Cubes\yCube.prefab
 
 
-    public GameObject bluecube_noArrow;
-    public GameObject redcube_noArrow;
+    [SerializeField] public GameObject bluecube_noArrow;       // folder: Assets\Resources\Prefabs\Cubes\bCube_noArrow.prefab
+    [SerializeField] public GameObject redcube_noArrow;        // folder: Assets\Resources\Prefabs\Cubes\rCube_noArrow.prefab
 
-    public GameObject orangecube_noArrow;
-    public GameObject greencube_noArrow;
+    [SerializeField] public GameObject orangecube_noArrow;     // folder: Assets\Resources\Prefabs\Cubes\oCube_noArrow.prefab
+    [SerializeField] public GameObject greencube_noArrow;      // folder: Assets\Resources\Prefabs\Cubes\gCube_noArrow.prefab
 
-    public GameObject purplecube_noArrow;
-    public GameObject yellowcube_noArrow;
+    [SerializeField] public GameObject purplecube_noArrow;     // folder: Assets\Resources\Prefabs\Cubes\pCube_noArrow.prefab
+    [SerializeField] public GameObject yellowcube_noArrow;     // folder: Assets\Resources\Prefabs\Cubes\yCube_noArrow.prefab
 
-    public Transform[] bpoints;
-    public Transform[] rpoints;
+    [SerializeField] public Transform[] bpoints;              // Spawner\point3 and point4
+    [SerializeField] public Transform[] rpoints;              // Spawner\point1 and point2
 
-    public Transform[] onehandcubes;
+    [SerializeField] public Transform[] onehandcubes;        // Spawner\point_Onehand1, point_Onehand2 and point_Onehand3
 
-    public GameObject bluesaber;
+    [SerializeField] public GameObject bluesaber;            // Player\XR Orign\Camera Offset\LeftHand Controller
 
     private int[] r = { 0, 2 };
 
-    public GameObject coordinate;
+    [SerializeField] public GameObject coordinate;            // folder: Assets\Resources\Prefabs\Coordinate.prefab
 
-    public SumGenerator sumGenerator;
+    [SerializeField] public SumGenerator sumGenerator;       // UI\Sum Canvas
 
-    public float speed;
-    public float distance;
-    public Transform disappearPosition;
+    [SerializeField] public float speed;
+    [SerializeField] public float distance;
+    [SerializeField] public Transform disappearPosition;    // Uitgang
 
     void Start()
     {
-        distance = disappearPosition.position.z - transform.position.z; 
+        distance = disappearPosition.position.z - transform.position.z;
         speed = GameModeController.settings.generationSpeed;  // set the speed of the cubes based on the settings in the GameModeController.
         if (GameModeController.settings.sabermode == 1) // if the game mode is one hand mode, disable the blue saber.
         {

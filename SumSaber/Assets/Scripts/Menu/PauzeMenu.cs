@@ -11,16 +11,16 @@ public class PauzeMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
-    [SerializeField] GameObject pauzeMenuUI;
+    [SerializeField] GameObject pauzeMenuUI;      // UI\Pauze Menu
 
-    [SerializeField] Canvas SumCanvas;
-    [SerializeField] GameObject Cubes;
+    [SerializeField] Canvas SumCanvas;            // UI\Sum Canvas
+    [SerializeField] GameObject Cubes;            // Spawner
 
     //Make sure only the right controller is active when the game is unpaused
-    [SerializeField] GameObject saber_righthand;
-    [SerializeField] GameObject saber_lefthand;
-    [SerializeField] GameObject controller_righthand;
-    [SerializeField] GameObject controller_lefthand;
+    [SerializeField] GameObject saber_righthand;       // Player\XR Orign\Camera Offset\RightHand Controller
+    [SerializeField] GameObject saber_lefthand;        // Player\XR Orign\Camera Offset\LeftHand Controller
+    [SerializeField] GameObject controller_righthand;  // Player\XR Orign\Camera Offset\RightHand Controller_Menu
+    [SerializeField] GameObject controller_lefthand;   // Player\XR Orign\Camera Offset\LeftHand Controller_Menu
 
     private void Start()
     {

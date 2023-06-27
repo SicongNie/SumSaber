@@ -5,17 +5,17 @@ using UnityEngine;
 //This script controls the transition of fog color of the backgrond and density based on the progress of the questions
 public class FogColorChange : MonoBehaviour
 {
-    public Color targetColor;
-    public Color targetColor2;
-    public float targetDensity;
-    public float transitionTime;
+    [SerializeField] public Color targetColor;            // #FFA145
+    [SerializeField] public Color targetColor2;           // #3E454B
+    [SerializeField] public float targetDensity;        // 0.04
+    [SerializeField] public float transitionTime;          // 1.5 
     private float transitionTimer2;
 
     private Color initialColor;
     private float initialDensity;
     private float transitionTimer;
 
-    [SerializeField] Numbers counter;
+    [SerializeField] Numbers counter;                //  UI\ Sum Canvas\Counter
 
     private void Start()
     {

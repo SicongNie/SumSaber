@@ -9,23 +9,23 @@ using static LightSaberColorChange;
 //This script is responsible for various tasks related to the lightsabers
 public class Lightsaber : MonoBehaviour
 {
-    public ObjectCut objectCut;
-    public string layer;
+    [SerializeField] public ObjectCut objectCut;   
+    public string layer;  // Right saber: Red/ Left saber: Blue
     private bool isTriggered;
     private bool checkangle;
 
-    [SerializeField] SumGenerator sumGenerator;
+    [SerializeField] SumGenerator sumGenerator;    // UI\Sum Canvas
     private TextMeshPro answer;
-    [SerializeField] PlayerScores scores;
-    [SerializeField] Numbers counter;
+    [SerializeField] PlayerScores scores;         // UI\Sum Canvas\Score
+    [SerializeField] Numbers counter;             // UI\Sum Canvas\Counter
 
     private AudioSource cutsound;
-    [SerializeField] AudioClip cotsound_hit;
-    [SerializeField] AudioClip cutsound_faild;
+    [SerializeField] AudioClip cotsound_hit;        // folder: Assets\Resources\Sounds\right: HitShortRight1.wav or left: HitShortLeft1.wav
+    [SerializeField] AudioClip cutsound_faild;      // folder: Assets\Resources\Sounds\right: BadCut0.wav or left: BadCut1.wav
     private bool isPlaying = false;
-    public HapticInteracble hapticInteracble;
-    [SerializeField] GameObject cuteffect;
-    [SerializeField] GameObject warning;
+    [SerializeField] public HapticInteracble hapticInteracble;   // Player\XR Orign\Camera Offset\RightHand/LeftHand Controller
+    [SerializeField] GameObject cuteffect;             // folder: Assets\Resources\Prefabs\Spark
+    [SerializeField] GameObject warning;           // folder: Assets\Resources\Prefabs\Warning
 
     private bool hasCollided = false;
     private float cooldownTime = 1f;

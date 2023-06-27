@@ -9,7 +9,7 @@ public class PlayerScores : MonoBehaviour
     public float score = 10.0f;
 
     TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI scoreTxt_Result;
+    [SerializeField] TextMeshProUGUI scoreTxt_Result;    // UI\Results Menu\Panel\Score_Txt
 
     public void Start()
     {

@@ -11,19 +11,19 @@ public class ObjectCut : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The blade object")]
-    public GameObject _blade;
+    public GameObject _blade;   // Parent\Blade
 
     [SerializeField]
     [Tooltip("The empty game object located at the tip of the blade")]
-    private GameObject _tip;
+    private GameObject _tip;   // Parent\Blade\Tip
 
     [SerializeField]
     [Tooltip("The empty game object located at the base of the blade")]
-    private GameObject _base;
+    private GameObject _base;  // Parent\Blade\Base
 
     [SerializeField]
     [Tooltip("The mesh object with the mesh filter and mesh renderer")]
-    private GameObject _meshParent;
+    private GameObject _meshParent;    //Parent\TrailMesh
 
     [SerializeField]
     [Tooltip("The number of frame that the trail should be rendered for")]

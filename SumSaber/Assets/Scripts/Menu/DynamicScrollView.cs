@@ -7,10 +7,10 @@ using UnityEngine;
 //This script manages the dynamic scroll view in the results menu
 public class DynamicScrollView : MonoBehaviour
 {
-    public RectTransform content;
-    public GameObject listItemPrefab;
+    [SerializeField] public RectTransform content;       // UI\Results Menu\Panel_Sums\Scroll_Sums\Viewport\Content
+    [SerializeField] public GameObject listItemPrefab;   // UI\Results Menu\Panel_Sums\Scroll_Sums\Viewport\Content\Button
 
-    [SerializeField] TextMeshProUGUI sumsTxt;
+    [SerializeField] TextMeshProUGUI sumsTxt;           // UI\Results Menu\Panel_Sums\Title
 
     public void ShowResult()
     {
